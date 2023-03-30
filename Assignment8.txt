@@ -1,0 +1,22 @@
+1. Compare process vs thread. Why we should use thread?
+A) Process means a program is in execution, where thread means a segment of a process in execution. Threads are lightweight and use the resources of process. We use threads to improve application performnace using parallelism i.e, doing multiple things at the same time.
+
+2. How do you implement thread and when to use what approach? 
+A) In Java, we can implement threads by extending thread class or by using runnable interface. If we use extends we miss inheritance benefits and when we implement we can extend any other class in future. So, implementing runnable would be a best approach. 
+As in extends, the thread wont be allocated a new call stack and it will start running in the current call stack which results in no multi threading. If we want to use common functionality and customise logic of threads we can use extends.
+
+3. What is the difference between start() vs run()? Can we call run() method of a thread class?
+A) Start launches the new Thread, causing it to begin executing its run method concurrently. It schedules the Thread to run on a processor. Simply calling start will enable the Thread to run in the background.
+While run defines the code that will execute in the Thread. This method is required and must be implemented in any Thread subclass. When you call start on a Thread, its run method is automatically executed on a separate processor.
+
+Yes, we can call the run method directly on a Thread object. However, this will execute the Thread code on the current processor, not in a new Thread. The Thread will not run concurrently in the background and run should always be called indirectly by start.
+
+4. Compare wait() vs sleep() 
+A) Wait is a method on Object while sleep is a static method on Thread. Wait pauses a thread until it is notified by another thread and sleep pauses a thread for a specified number of milliseconds. Wait must be called from a synchronized block or method to avoid IllegalMonitorStateException but sleep can be called from anywhere.Wait releases the lock on an object and allows another waiting thread to acquire it, sleep simply pauses the execution of the current thread. Wait is used for thread coordination and communication and sleep is used to introduce a delay.
+
+5. How does thread communicate with each other?
+A) There are three ways for threads to communicate with each other. The first is through commonly shared data. All the threads in the same program share the same memory space. If an object is accessible to various threads then these threads share access to that object's data member and thus communicate each other.
+
+The second way for threads to communicate is by using thread control methods. There are such three methods by which threads communicate for each other : suspend ( ), resume ( ), join ( )
+
+The third way for threads to communicate is the use of three methods; wait(), notify(), and notifyAll(); Actually these three methods provide an elegant inter-process communication mechanism to take care the deadlock situation in Java.
