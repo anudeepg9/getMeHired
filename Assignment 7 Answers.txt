@@ -1,0 +1,41 @@
+Assignment 7 Answers:
+1. A
+
+2.  Which class has the fewest subclass Exception/RuntimeException/Error and why?
+A) Error class has fewer subclasses. Because error is considered as severe type of exception which we cannot catch and handle due to which fewer subclasses being created.
+
+3.  Throwable is a class or Interface? Explain why?
+A) Throwable is a class and not an interface and it is extended by all its subclasses like exception/runtimeexception/error. Throwable has its methods implementations.
+
+4. A,B,C,D - All these classes can be thrown
+
+5.  Why the following code will not compile.    
+
+public static void test() throws FileNotFoundException {
+	    	try {
+	    		throw FileNotFoundException();
+	    	}
+	    	finally {
+	    		
+	    	}
+	    }
+A) The Above code would not compile because we are calling FileNotFoundException() as a method which is incorrect as its a class. we can use throw new FileNotFoundException() which would work.
+
+6. A
+
+7. Compare Error vs Exception?
+Error is an unforeseen occurrence and are not checked which mean a severe problem had occured crashing the application
+Errors cannot be catched and it haults the application. Errors usually indicate JVM or system Failures
+
+Exception is a known error and is a condition where we can recover from. Exception can be checked by the compiler. Exceptions indicate unexpected conditions in application failure.
+
+Examples of Exceptions include FileNotFoundException, IndexOutOfBoundsException, etc. Examples of Errors include OutOfMemoryError, StackOverflowError, NoClassDefFoundError, etc.
+
+8. Compare Checked Exception vs Unchecked Exception? Give an example of Checked Exception. 
+Checked Exception can be caught during the compile time but unchecked exception can be caught only on runtime.
+Checked exceptions must be caught or specified in method declarations, unchecked exceptions do not need to be.
+Checked exceptions indicate conditions that are valid for a developer to recover from, unchecked exceptions indicate logical errors that developers usually did not anticipate.
+
+Examples of checked exception: FileNotFoundException, SQLException, IllegalArgumentException, etc.
+
+
